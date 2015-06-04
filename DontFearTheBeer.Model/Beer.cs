@@ -12,5 +12,7 @@ namespace DontFearTheBeer.Model
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
+
+        public string description { get; set; }
     }
 }
