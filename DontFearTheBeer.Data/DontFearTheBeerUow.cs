@@ -13,9 +13,12 @@ namespace DontFearTheBeer.Data
     {
         #region constructors
 
-        public DontFearTheBeerUow(IRepositoryProvider respositoryProvider)
+        public DontFearTheBeerUow(IRepositoryProvider repositoryProvider)
         {
             CreateDbContext();
+
+            repositoryProvider.DbContext = DbContext;
+            RepositoryProvider = repositoryProvider;
         }
 
         #endregion
@@ -25,6 +28,26 @@ namespace DontFearTheBeer.Data
         public IRepository<Beer> Beers
         {
             get { return GetStandardRepo<Beer>(); }
+        }
+
+        public IRepository<BeerImage> BeerImages
+        {
+            get { return GetStandardRepo<BeerImage>(); }
+        }
+
+        public IRepository<Brewery> Breweries
+        {
+            get { return GetStandardRepo<Brewery>(); }
+        }
+
+        public IReviewRepository Reviews
+        {
+            get { return GetRepo<IReviewRepository>(); }
+        }
+
+        public IRepository<Taster> Tasters
+        {
+            get { return GetStandardRepo<Taster>(); }
         }
                 
         protected IRepositoryProvider RepositoryProvider { get; set; }

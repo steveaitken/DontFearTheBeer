@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="IDontFearTheBeerUow.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="IReviewRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
