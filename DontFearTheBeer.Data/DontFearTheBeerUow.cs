@@ -1,5 +1,6 @@
 ﻿using DontFearTheBeer.Data.Contracts;
 using DontFearTheBeer.Data.Helpers;
+using DontFearTheBeer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,14 @@ namespace DontFearTheBeer.Data
 
         #region properties
 
-        private DontFearTheBeerDbContext DbContext { get; set; }
-
+        public IRepository<Beer> Beers
+        {
+            get { return GetStandardRepo<Beer>(); }
+        }
+                
         protected IRepositoryProvider RepositoryProvider { get; set; }
+
+        private DontFearTheBeerDbContext DbContext { get; set; }
 
         #endregion
 
@@ -36,6 +42,7 @@ namespace DontFearTheBeer.Data
         }
 
         #endregion
+
 
         #region protected methods
 

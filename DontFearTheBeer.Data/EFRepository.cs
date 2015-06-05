@@ -75,7 +75,7 @@ namespace DontFearTheBeer.Data
             }
         }
 
-        public virtual void Detele (int id)
+        public virtual void Delete (int id)
         {
             var entity = GetById(id);
 
