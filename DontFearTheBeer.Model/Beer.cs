@@ -10,12 +10,12 @@ namespace DontFearTheBeer.Model
     public class Beer
     {
         public int Id { get; set; }
-        
-        [Required(ErrorMessage = "Name is required!")]
+
         public int BreweryId { get; set; }
         
         public Brewery Brewery { get; set; }
-        
+
+        [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
         
         // make this an enum

@@ -1,11 +1,6 @@
 ﻿using DontFearTheBeer.Data.Contracts;
-using DontFearTheBeer.Data.Helpers;
 using DontFearTheBeer.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DontFearTheBeer.Data
 {
@@ -22,6 +17,7 @@ namespace DontFearTheBeer.Data
         }
 
         #endregion
+
 
         #region properties
 

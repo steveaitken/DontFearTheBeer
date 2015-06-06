@@ -19,6 +19,6 @@ namespace DontFearTheBeer.Model
 
         public bool IsAdmin { get; set; }
 
-        public virtual ICollection<Review> Review { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DontFearTheBeer.Data.Helpers
+namespace DontFearTheBeer.Data
 {
     public interface IRepositoryProvider
     {
