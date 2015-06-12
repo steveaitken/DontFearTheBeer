@@ -8,17 +8,20 @@ namespace DontFearTheBeer.Model
 {
     public class BeerImage
     {
+        #region properties
+
         public int Id { get; set; }
 
         public int BeerId { get; set; }
-    
-        public Beer Beer { get; set; }
-
+        
         public string Tag { get; set; }
 
         public string Notes { get; set; }
         
         public string ImageLocation{get;set;}
-    
+        
+        public virtual Beer Beer { get; set; }
+
+        #endregion
     }
 }

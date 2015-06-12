@@ -9,6 +9,8 @@ namespace DontFearTheBeer.Data
 
         public ReviewConfiguration()
         {
+            HasKey(r => new { r.BeerId, r.TasterId });
+
             // Review has 1 Beer, Beer has many Reviews
             HasRequired(r => r.Beer)
                 .WithMany(b => b.Reviews)

@@ -8,6 +8,25 @@ namespace DontFearTheBeer.Model
 {
     public class Taster
     {
+        #region variables
+
+        private ICollection<Review> _reviews;
+
+        #endregion
+
+
+        #region constructors
+
+        public Taster()
+        {
+            _reviews = new List<Review>();
+        }
+
+        #endregion
+
+
+        #region properties
+
         public int Id { get; set; }
 
         public string FullName { get; set; }
@@ -19,6 +38,12 @@ namespace DontFearTheBeer.Model
 
         public bool IsAdmin { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Review> Reviews 
+        {
+            get { return _reviews; }
+            set { _reviews = value; }
+        }
+
+        #endregion
     }
 }

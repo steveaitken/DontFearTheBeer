@@ -9,15 +9,14 @@ namespace DontFearTheBeer.Model
 {
     public class Review
     {
-        public int BeerId { get; set; }
+        #region
 
-        public Beer Beer { get; set; }
+        [Key()]
+        public int BeerId { get; set; }
 
         public int TasterId { get; set; }
 
-        public Taster Taster { get; set; }
-
-        /// <summary>Get and set the person's rating of the session from 1-5 (0=not rated).</summary>
+                /// <summary>Get and set the person's rating of the session from 1-5 (0=not rated).</summary>
         [Range(0, 5)]
         public int Rating { get; set; }
 
@@ -26,6 +25,11 @@ namespace DontFearTheBeer.Model
         public string Notes { get; set; }
 
         public DateTime Date { get; set; }
+        
+        public virtual Beer Beer { get; set; }
 
+        public virtual Taster Taster { get; set; }
+
+        #endregion
     }
 }

@@ -9,12 +9,31 @@ namespace DontFearTheBeer.Model
 {
     public class Beer
     {
+        #region variables
+
+        private ICollection<BeerImage> _images;
+        private ICollection<Review> _reviews;
+
+        #endregion
+
+
+        #region constructors
+
+        public Beer()
+        {
+            _images = new List<BeerImage>();
+            _reviews = new List<Review>();
+        }
+
+        #endregion
+
+
+        #region properties
+
         public int Id { get; set; }
 
         public int BreweryId { get; set; }
         
-        public Brewery Brewery { get; set; }
-
         [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
         
@@ -27,8 +46,21 @@ namespace DontFearTheBeer.Model
         
         public string Description { get; set; }
 
-        public virtual ICollection<BeerImage> Images { get; set; }
+        public virtual Brewery Brewery { get; set; }
 
-        public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<BeerImage> Images
+        { 
+            get { return _images; }
+            set { _images = value; }
+        }
+
+        public virtual ICollection<Review> Reviews 
+        {
+            get { return _reviews; }
+            set { _reviews = value; }
+        }
+
+        #endregion
+
     }
 }
