@@ -29,9 +29,8 @@ namespace DontFearTheBeer.Web
             // It finds the method on the controller using WebAPI conventions
             // The template has no parameters.
             //
-            // ex: api/sessionbriefs
-            // ex: api/sessions
-            // ex: api/persons
+            // ex: api/beers
+            // ex: api/breweries
             routes.MapHttpRoute(
                 name: ControllerOnly,
                 routeTemplate: "api/{controller}"
@@ -46,8 +45,8 @@ namespace DontFearTheBeer.Web
             // The {id} is not optional, must be an integer, and 
             // must match a method with a parameter named "id" (case insensitive)
             //
-            //  ex: api/sessions/1
-            //  ex: api/persons/1
+            //  ex: api/beers/1
+            //  ex: api/breweries/1
             routes.MapHttpRoute(
                 name: ControllerAndId,
                 routeTemplate: "api/{controller}/{id}",
@@ -58,10 +57,6 @@ namespace DontFearTheBeer.Web
             /********************************************************
             * The integer id constraint is necessary to distinguish 
             * the {id} route above from the {action} route below.
-            * For example, the route above handles
-            *     "api/sessions/1" 
-            * whereas the route below handles
-            *     "api/lookups/all"
             ********************************************************/
 
             // This RPC style route is great for lookups and custom calls

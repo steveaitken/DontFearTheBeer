@@ -38,7 +38,7 @@ namespace DontFearTheBeer.Model
         public string Name { get; set; }
         
         // make this an enum
-        public string Category { get; set; }
+        public BeerCategory Category { get; set; }
         
         public decimal ABV { get; set; }
         

@@ -9,11 +9,11 @@ using System.Web.Http;
 
 namespace DontFearTheBeer.Web.Controllers
 {
-    public class BeerController : ApiBaseController
+    public class BreweryController : ApiBaseController
     {
         #region constructors
 
-        public BeerController(IDontFearTheBeerUow uow)
+        public BreweryController(IDontFearTheBeerUow uow)
         {
             Uow = uow;
         }
@@ -22,50 +22,50 @@ namespace DontFearTheBeer.Web.Controllers
 
 
         #region public methods
-        // GET: api/beer
-        public IEnumerable<Beer> Get()
+        // GET: api/brewery
+        public IEnumerable<Brewery> Get()
         {
-            return Uow.Beers.GetAll();
+            return Uow.Breweries.GetAll();
         }
 
-        // GET /api/beer/5
-        public Beer Get(int id)
+        // GET /api/brewery/5
+        public Brewery Get(int id)
         {
-            var beer = Uow.Beers.GetById(id);
-            if (beer != null) return beer;
+            Brewery brewery = Uow.Breweries.GetById(id);
+            if (brewery != null) return brewery;
             throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
         }
 
-        // Create a new Beer
-        // POST /api/beer
-        public HttpResponseMessage Post(Beer beer)
+        // Create a new Brewery
+        // POST /api/brewery
+        public HttpResponseMessage Post(Brewery brewery)
         {
-            Uow.Beers.Add(beer);
+            Uow.Breweries.Add(brewery);
             Uow.Commit();
 
-            var response = Request.CreateResponse(HttpStatusCode.Created, beer);
+            var response = Request.CreateResponse(HttpStatusCode.Created, brewery);
 
             // Compose location header that tells how to get this session
-            // e.g. ~/api/beer/5
+            // e.g. ~/api/brewery/5
             response.Headers.Location =
-                new Uri(Url.Link(WebApiConfig.ControllerAndId, new { id = beer.Id }));
+                new Uri(Url.Link(WebApiConfig.ControllerAndId, new { id = brewery.Id }));
 
             return response;
         }
 
-        // Update an existing Beer
-        // PUT /api/beer/
-        public HttpResponseMessage Put(Beer beer)
+        // Update an existing brewery
+        // PUT /api/brewery/
+        public HttpResponseMessage Put(Brewery brewery)
         {
-            Uow.Beers.Update(beer);
+            Uow.Breweries.Update(brewery);
             Uow.Commit();
             return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
 
-        // DELETE /api/beer/5
+        // DELETE /api/brewery/5
         public HttpResponseMessage Delete(int id)
         {
-            Uow.Beers.Delete(id);
+            Uow.Breweries.Delete(id);
             Uow.Commit();
             return new HttpResponseMessage(HttpStatusCode.NoContent);
         }

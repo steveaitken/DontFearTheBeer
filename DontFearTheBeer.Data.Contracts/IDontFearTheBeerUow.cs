@@ -12,5 +12,9 @@ namespace DontFearTheBeer.Data.Contracts
         void Commit();
 
         IRepository<Beer> Beers { get; }
+        IRepository<BeerImage> BeerImages { get; }
+        IRepository<Brewery> Breweries { get; }
+        IReviewRepository Reviews { get; }
+        IRepository<Taster> Tasters { get; }
     }
 }

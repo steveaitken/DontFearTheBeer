@@ -9,11 +9,11 @@ using System.Web.Http;
 
 namespace DontFearTheBeer.Web.Controllers
 {
-    public class BeerController : ApiBaseController
+    public class TasterController : ApiBaseController
     {
         #region constructors
 
-        public BeerController(IDontFearTheBeerUow uow)
+        public TasterController(IDontFearTheBeerUow uow)
         {
             Uow = uow;
         }
@@ -22,50 +22,50 @@ namespace DontFearTheBeer.Web.Controllers
 
 
         #region public methods
-        // GET: api/beer
-        public IEnumerable<Beer> Get()
+        // GET: api/taster
+        public IEnumerable<Taster> Get()
         {
-            return Uow.Beers.GetAll();
+            return Uow.Tasters.GetAll();
         }
 
-        // GET /api/beer/5
-        public Beer Get(int id)
+        // GET /api/taster/5
+        public Taster Get(int id)
         {
-            var beer = Uow.Beers.GetById(id);
-            if (beer != null) return beer;
+            Taster taster = Uow.Tasters.GetById(id);
+            if (taster != null) return taster;
             throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.NotFound));
         }
 
-        // Create a new Beer
-        // POST /api/beer
-        public HttpResponseMessage Post(Beer beer)
+        // Create a new Taster
+        // POST /api/taster
+        public HttpResponseMessage Post(Taster taster)
         {
-            Uow.Beers.Add(beer);
+            Uow.Tasters.Add(taster);
             Uow.Commit();
 
-            var response = Request.CreateResponse(HttpStatusCode.Created, beer);
+            var response = Request.CreateResponse(HttpStatusCode.Created, taster);
 
             // Compose location header that tells how to get this session
-            // e.g. ~/api/beer/5
+            // e.g. ~/api/taster/5
             response.Headers.Location =
-                new Uri(Url.Link(WebApiConfig.ControllerAndId, new { id = beer.Id }));
+                new Uri(Url.Link(WebApiConfig.ControllerAndId, new { id = taster.Id }));
 
             return response;
         }
 
-        // Update an existing Beer
-        // PUT /api/beer/
-        public HttpResponseMessage Put(Beer beer)
+        // Update an existing Taster
+        // PUT /api/taster/
+        public HttpResponseMessage Put(Taster taster)
         {
-            Uow.Beers.Update(beer);
+            Uow.Tasters.Update(taster);
             Uow.Commit();
             return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
 
-        // DELETE /api/beer/5
+        // DELETE /api/taster/5
         public HttpResponseMessage Delete(int id)
         {
-            Uow.Beers.Delete(id);
+            Uow.Tasters.Delete(id);
             Uow.Commit();
             return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
